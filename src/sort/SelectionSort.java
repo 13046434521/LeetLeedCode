@@ -38,6 +38,22 @@ class SelectionSort extends Sort{
         return arr;
     }
 
+    public int[] sort2(int[] arr) {
+        for (int i=0;i<arr.length;i++){
+            for (int j=0;j<arr.length-1;j++){
+                if (arr[j]>arr[j+1]){
+
+                }
+            }
+
+
+
+        }
+
+
+        return arr;
+    }
+
     private static void swap(int[] arr, int i, int minIndex) {
         int temp = arr[i];
         arr[i]=arr[minIndex];

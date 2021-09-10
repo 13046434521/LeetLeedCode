@@ -9,17 +9,8 @@ class test {
    @Test
    public static void main(String[] args) {
 
-      new Thread(()->{
-         int i = 1;
-         while (i<10000){
-            if (i%3==0){
-               System.out.println(("i:" + i));
-               continue;
-            }
-
-            i++;
-         }
-      }).start();
+      int i = (1+6)/2;
+      System.out.println(i);
    }
 
    public static void test1(){

@@ -11,7 +11,7 @@ import java.util.Arrays;
 class BubbleSort extends Sort {
     public static void main(String[] args) {
         BubbleSort bubbleSort = new BubbleSort();
-        bubbleSort.sort(data);
+        bubbleSort.sort2(data);
         System.out.println(Arrays.toString(data));
     }
 
@@ -31,6 +31,18 @@ class BubbleSort extends Sort {
             }
         }
 
+        return aar;
+    }
+
+
+    public int[] sort2(int[] aar){
+        for (int i = 0;i<aar.length;i++){
+            for (int j = 0;j<aar.length-1;j++){
+                if (aar[j]>aar[j+1]) {
+                    swap(aar, j, j + 1);
+                }
+            }
+        }
         return aar;
     }
 
