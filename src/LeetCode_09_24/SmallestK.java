@@ -1,4 +1,4 @@
-package LeetCode_09_23;
+package LeetCode_09_24;
 
 /**
  * @author jtl
@@ -6,7 +6,7 @@ package LeetCode_09_23;
  * 题目：面试题 17.14. 最小K个数
  * 网址：https://leetcode-cn.com/problems/smallest-k-lcci/
  * 思路：归并排序
- * 状态：
+ * 状态：完成
  */
 
 class SmallestK {
@@ -24,7 +24,7 @@ class SmallestK {
     }
 
     public void sort(int[] arr,int left,int right){
-        if (left == right){
+        if (arr.length==0||left == right){
             return;
         }
         int middle = left+((right-left)>>1);
@@ -37,23 +37,24 @@ class SmallestK {
     public void merge(int[] arr,int left,int middle,int right){
         int[] res = new int[right-left+1];
         int index = 0;
-        int start = left;
-        while (left<=middle-1 && middle<=right){
-            if (arr[left]<=arr[middle]){
-                res [index++] = arr[left++];
+        int p1 = left;
+        int p2 = middle+1;
+        while (p1<=middle && p2<=right){
+            if (arr[p1]<=arr[p2]){
+                res [index++] = arr[p1++];
             }else{
-                res [index++] = arr[middle++];
+                res [index++] = arr[p2++];
             }
         }
-        while (left<=middle-1){
-            res [index++] = arr[left++];
+        while (p1<=middle){
+            res [index++] = arr[p1++];
         }
-        while ( middle<=right){
-            res [index++] = arr[middle++];
+        while ( p2<=right){
+            res [index++] = arr[p2++];
         }
 
         for (int i = 0; i < res.length; i++) {
-            arr[start++] = res[i];
+            arr[left+i] = res[i];
         }
     }
 }

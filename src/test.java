@@ -23,7 +23,7 @@ class test extends Sort {
     int b = 0;
 
     public static void main(String[] args) {
-        sort1(data,0,data.length);
+        sort1(data,0,data.length-1);
         System.out.println(Arrays.toString(data));
 //        System.out.println(1 / 10);
 //        int[] arr = new int[]{0,1,1};
@@ -207,28 +207,30 @@ class test extends Sort {
         sort1(arr,left,middle);
         sort1(arr,middle+1,right);
         merge(arr,left,middle,right);
+
     }
 
-    public static void  merge(int[] arr,int left,int middle,int right){
+    public static void merge(int[] arr,int left,int middle,int right){
         int[] res = new int[right-left+1];
         int index = 0;
-        int start = left;
-        while (left<=middle-1 && middle<=right){
-            if (arr[left]<=arr[middle]){
-                res [index++] = arr[left++];
+        int p1 = left;
+        int p2 = middle+1;
+        while (p1<=middle && p2<=right){
+            if (arr[p1]<=arr[p2]){
+                res [index++] = arr[p1++];
             }else{
-                res [index++] = arr[middle++];
+                res [index++] = arr[p2++];
             }
         }
-        while (left<=middle-1){
-            res [index++] = arr[left++];
+        while (p1<=middle){
+            res [index++] = arr[p1++];
         }
-        while ( middle<=right){
-            res [index++] = arr[middle++];
+        while ( p2<=right){
+            res [index++] = arr[p2++];
         }
 
         for (int i = 0; i < res.length; i++) {
-            arr[start++] = res[i];
+            arr[left+i] = res[i];
         }
     }
 }
