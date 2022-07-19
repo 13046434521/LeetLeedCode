@@ -25,8 +25,8 @@ class PreorderTraversal {
       if (node == null){
          return;
       }
-      list.add(node.val);
 
+      list.add(node.val);
       preorder(node.left,list);
       preorder(node.right,list);
    }
